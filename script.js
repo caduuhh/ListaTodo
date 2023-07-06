@@ -7,13 +7,7 @@ const textarea = document.querySelector('.texto');
 let nuvem = [];
 showItens();
 
-let data = new Date();
-let hora = data.getHours();
-let minuto = data.getMinutes();
-let segundos = data.getSeconds();
-let dia = data.getDate();
-let mes = data.getMonth();
-let ano = data.getFullYear();
+
 
 
 add.addEventListener('click', () => {
@@ -23,7 +17,7 @@ add.addEventListener('click', () => {
 del.addEventListener('click', () => {
     conteudo.innerHTML = '';
     nuvem = [];
-    localStorage.meuArr = [];
+    localStorage.meuArr = JSON.stringify(nuvem);
 });
 
 buttonCancel.addEventListener('click', () => {
@@ -40,6 +34,14 @@ buttonAdd.addEventListener('click', () => {
 });
 
 function adicionarTexto() {
+    let data = new Date();
+    let hora = data.getHours();
+    let minuto = data.getMinutes();
+    let segundos = data.getSeconds();
+    let dia = data.getDate();
+    let mes = data.getMonth();
+    let ano = data.getFullYear();
+
     if(localStorage.meuArr) {
         nuvem = JSON.parse(localStorage.getItem('meuArr'));
     }
