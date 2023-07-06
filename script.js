@@ -7,9 +7,6 @@ const textarea = document.querySelector('.texto');
 let nuvem = [];
 showItens();
 
-
-
-
 add.addEventListener('click', () => {
     document.querySelector('.modal').style.display = 'flex';
 });
@@ -17,7 +14,7 @@ add.addEventListener('click', () => {
 del.addEventListener('click', () => {
     conteudo.innerHTML = '';
     nuvem = [];
-    localStorage.meuArr = JSON.stringify(nuvem);
+    localStorage.removeItem('meuArr');
 });
 
 buttonCancel.addEventListener('click', () => {
