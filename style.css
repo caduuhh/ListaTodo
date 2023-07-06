@@ -1,0 +1,68 @@
+* {
+    font-family: sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffe4c4;
+}
+.botoes {
+    display: flex;
+    justify-content: center;
+}
+.botoes button {
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.adicionar {
+    margin-right: 5px;
+}
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.432);
+}
+
+.texto {
+    height: 200px;
+    width: 500px;
+}
+.modal button {
+    margin-top: 10px;
+    cursor: pointer;
+    width: 500px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.estilo {
+    overflow-wrap: break-word;
+    width: 400px;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: #fff;
+    margin-top: 10px;
+    box-shadow: 2px 2px 2px #ac9375;
+}
+.estilo2 {
+    font-size: 20px;
+}
+.estilo3 {
+    font-size: 12px;
+    color: #6b6b6b;
+}
