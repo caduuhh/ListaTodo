@@ -42,14 +42,37 @@ function adicionarTexto() {
     if(localStorage.meuArr) {
         nuvem = JSON.parse(localStorage.getItem('meuArr'));
     }
+
+    let dataFormatada = `${fixZero(dia)}/${fixZero(mes + 1)}/${ano}, ${fixZero(hora)}:${fixZero(minuto)}:${fixZero(segundos)}`;
+
+    let texto = textarea.value;
+    
+    // let newBack = document.createElement('div');
+    // newBack.classList.add('estilo');
+    
+    // let newText = document.createElement('div');
+    // newText.classList.add('estilo2');
+    // newText.innerHTML = texto;
+    
+    // let newDate = document.createElement('div');
+    // newDate.innerHTML = dataFormatada;
+    // newDate.classList.add('estilo3');
+
+    // conteudo.appendChild(newBack);
+    // newBack.appendChild(newText);
+    // newBack.appendChild(newDate);
+
     conteudo.innerHTML += '<div class="estilo">' + '<div class="estilo2">' + textarea.value + '</div>' + '<div class="estilo3">' + fixZero(dia) + '/' + fixZero(mes + 1) + '/' + ano + ', ' + fixZero(hora) + ':' + fixZero(minuto) + ':' + fixZero(segundos) + '</div>' + '</div>';
+
+    /* Primeira solução que salvava o html no localHost.
 
     let novoItem = '<div class="estilo">' + '<div class="estilo2">' + textarea.value + '</div>' + '<div class="estilo3">' + fixZero(dia) + '/' + fixZero(mes + 1) + '/' + ano + ', ' + fixZero(hora) + ':' + fixZero(minuto) + ':' + fixZero(segundos) + '</div>' + '</div>';
 
-    nuvem.push(novoItem);
+    */
+
+    nuvem.push(texto, dataFormatada);
 
     localStorage.meuArr = JSON.stringify(nuvem);
-    
 }
 
 function showItens() {
@@ -57,10 +80,21 @@ function showItens() {
         nuvem = JSON.parse(localStorage.getItem('meuArr'));
     }
 
-    for(var i in nuvem) {
-        let div = document.createElement('div');
-        div.innerHTML = nuvem[i];
-        conteudo.append(div);
+    for (var i = 0; i < nuvem.length; i += 2) {
+        let newBack = document.createElement('div');
+        newBack.classList.add('estilo');
+
+        let newText = document.createElement('div');
+        newText.classList.add('estilo2');
+        newText.innerHTML = nuvem[i];
+
+        let newDate = document.createElement('div');
+        newDate.classList.add('estilo3');
+        newDate.innerHTML = nuvem[i + 1];
+
+        conteudo.appendChild(newBack);
+        newBack.appendChild(newText);
+        newBack.appendChild(newDate);
     }
 }
 
@@ -71,6 +105,3 @@ function fixZero(time) {
         return time;
     }
 }
-
-
-    
